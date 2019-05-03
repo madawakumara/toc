@@ -1,0 +1,88 @@
+<!-- <ul id="accordion" class="accordion" >
+  <li *ngFor="let chap of chaps; let i = index" [class.active]="chap.active">
+    <div class="menu" (click)="toggle(i)">
+      <i [class]="chap.iconClass"></i>
+      {{ chap.name }}
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    <ul class="submenu" #submenu [style.height.px]="chap.active ? submenu.scrollHeight : 0">
+      <li *ngFor="let sec of chap.sections">
+        <a >{{ sec.name }}</a>
+        <ul>
+          <li ngFor="let subsec of sec.SubSection">
+            
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+ -->
+<ul class="accordion">
+  <li *ngFor="let chap of chaps; let i = index">
+    <div class="chapter" (click)="toggle(chaps, i)">
+      <i [class]="chap.iconClass"></i>
+      {{chap.id}}&nbsp;&nbsp;{{ chap.name }}
+      <i class="fa fa-chevron-down" *ngIf="chap.isActive"></i>
+    </div>
+    <!-- Sections / Pages-->
+    <div class="submenu" #submenu [style.height.px]="chap.isExpand ? submenu.scrollHeight : 0">
+      <!-- Sections -->
+      <ul>
+        <li *ngFor="let sec of chap.sections; let ii = index">
+          <div class="section" (click)="toggle(chap.sections, ii)">
+            {{chap.id}}.{{sec.id}}&nbsp;&nbsp;{{ sec.name }}
+            <i class="fa fa-chevron-down"></i>
+          </div>
+          <!-- Sub Sections / Section pages-->
+          <div class="submenu" #subsecmenu [style.height.px]="sec.isExpand ? subsecmenu.scrollHeight : 0">
+            <ul>
+              <li *ngFor="let subsec of sec.subSection; let iii = index">
+                <div class="section" (click)="toggle(sec.subSection, iii)">
+                  {{chap.id}}.{{sec.id}}.{{subsec.id}}&nbsp;&nbsp;{{ subsec.name }}
+                  <i class="fa fa-chevron-down"></i>
+                </div>
+                <!-- Sub section Pages-->
+                <div>
+                  <ul>
+                    <li *ngFor="let subPage of subsec.pages;">
+                      <a href="{{subPage.url}}" target="_blank">{{subPage.title}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <div *ngIf="sec.pages.length>0">
+              <ul>
+                <li *ngFor="let sPage of sec.pages;">
+                  <a href="{{sPage.url}}" target="_blank">{{sPage.title}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- Chapter level pages-->
+      <div *ngIf="chap.pages.length>0">
+        <ul>
+          <li *ngFor="let page of chap.pages;">
+            <a href="{{page.url}}" target="_blank">{{page.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <ul>
+      <li *ngFor="let sec of chap.sections;">
+        <div >
+          {{ sec.name }}
+        </div>
+        <ul>
+          <li *ngFor="let subsec of sec.SubSection">
+            <div>{{ subsec.name }}</div>
+          </li>
+        </ul>
+      </li>
+    </ul> -->
+  </li>
+</ul>

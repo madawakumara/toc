@@ -1,0 +1,35 @@
+<!-- <ul id="accordion" class="accordion" >
+  <li *ngFor="let chap of chaps; let i = index" [class.active]="chap.active">
+    <div class="menu" (click)="toggle(i)">
+      <i [class]="chap.iconClass"></i>
+      {{ chap.name }}
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    <ul class="submenu" #submenu [style.height.px]="chap.active ? submenu.scrollHeight : 0">
+      <li *ngFor="let sec of chap.sections">
+        <a >{{ sec.name }}</a>
+        <ul>
+          <li ngFor="let subsec of sec.SubSection">
+            
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+ -->
+ <ul>
+    <li *ngFor="let chap of chaps; let i = index">
+      <div>{{ chap.name }}</div>
+      <ul>
+        <li *ngFor="let sec of chap.sections;">
+            <div>{{ sec.name }}</div>        
+          <ul class="submenu2">
+            <li *ngFor="let subsec of sec.SubSection">
+              <div>{{ subsec.name }}</div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>

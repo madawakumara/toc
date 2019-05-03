@@ -1,0 +1,105 @@
+.accordion {
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.accordion .chapter {
+  position: relative;
+  padding: 15px 0px 10px 10px;
+  color: #4d4d4d;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.accordion .section {
+  position: relative;
+   padding: 5px 0px 10px 0px;
+  color: #4d4d4d;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.chapter i {
+  position: absolute;
+  top: 1.2rem;
+  left: -1.2rem;
+  color: #595959;
+  transition: all 0.4s ease;
+}
+
+.section i {
+  position: absolute;
+  top: 0.6rem;
+  color: #595959;
+  transition: all 0.4s ease;
+}
+
+.accordion li:last-child .chapter {
+  border-bottom: 0;
+}
+
+
+.accordion li i.fa-chevron-down {
+  right: 1rem;
+  left: auto;
+}
+
+.accordion li.active i.fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.accordion li.active .chapter {
+  color: #b63b4d;
+}
+
+.accordion li.active i {
+  color: #b63b4d;
+}
+
+.submenu {
+  height: 0;
+  overflow: hidden;
+  font-size: 14px;
+  transition: height 0.4s ease;
+}
+
+/* .submenu {
+  height: 0;
+  overflow: hidden;
+  background: #444359;
+  font-size: 14px;
+  transition: height 0.4s ease;
+}
+
+.submenu li {
+  border-bottom: 1px solid #4b4a5e;
+}
+
+.accordion li:last-child .submenu1 {
+  border-radius: 0 0 4px 4px;
+}
+
+.accordion li:last-child .submenu1 li:last-child {
+  border-bottom: 0;
+}
+
+.submenu a {
+  display: block;
+  text-decoration: none;
+  color: #d9d9d9;
+  padding: 12px;
+  padding-left: 42px;
+  transition: all 0.25s ease-in-out;
+}
+
+.submenu a:hover {
+  background: #b63b4d;
+  color: #fff;
+} */
